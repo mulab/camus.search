@@ -1,0 +1,1 @@
+This folder should be created for storing albums from 尹福.
