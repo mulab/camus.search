@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 import pyes
 import esparse
 import json as jsonlib
@@ -9,7 +9,7 @@ __es_url__ = '127.0.0.1:9200'
 
 @app.route('/')
 def index():
-    return 'success'
+    return render_template('index.html')
 
 
 def get_query_params_from(req):
