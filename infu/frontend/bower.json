@@ -1,0 +1,25 @@
+{
+  "name": "camus.search",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mulab/camus.search",
+  "authors": [
+    "cgcgbcbc <cgcgbcbc@163.com>"
+  ],
+  "description": "camus search front end",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2",
+    "jquery": "~1",
+    "backbone": "~1",
+    "underscore": "~1",
+    "handlebars": "~1"
+  }
+}
