@@ -24,8 +24,9 @@ requirejs.config({
     }
 });
 
-requirejs(['QUnit','test/env'],function(QUnit,env){
+requirejs(['QUnit','test/env','test/models'],function(QUnit,env,models){
     env.run();
+    models.run();
     QUnit.load();
     QUnit.start();
 });
