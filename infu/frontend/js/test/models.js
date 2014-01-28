@@ -15,11 +15,11 @@ define(['app/model/tunet','test/fixture'],function (Tunet,Fixture) {
         test('use server data for init',function(){
             var tunet = new Tunet();
             tunet.adapt_from(Fixture.Tunet);
-            notEqual(tunet.get('title'),'','After adapting, tunet has title');
-            notEqual(tunet.get('answer'),'','After adapting, tunet has answer');
-            notEqual(tunet.get('time'),'','After adapting, tunet has time');
-            notEqual(tunet.get('link'),'','After adapting, tunet has link');
-            notEqual(tunet.get('index'),'','After adapting, tunet has index');
+            equal(tunet.get('title'),Fixture.Tunet.question,'After adapting, tunet has title');
+            equal(tunet.get('answer'),Fixture.Tunet.answer,'After adapting, tunet has answer');
+            equal(tunet.get('time'),Fixture.Tunet.date,'After adapting, tunet has time');
+            equal(tunet.get('link'),Fixture.Tunet.link,'After adapting, tunet has link');
+            equal(tunet.get('index'),Fixture.Tunet.resultIndex,'After adapting, tunet has index');
         });
     };
     return {run:run};
