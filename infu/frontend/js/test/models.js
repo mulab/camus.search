@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Chemschool,Career,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -43,6 +43,13 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             strictEqual(career.get('question'),'','Career has question');
             strictEqual(career.get('link'),'','Career has link');
             strictEqual(career.get('index'),'','Career has index');
+
+            var common = new Common();
+            strictEqual(common.get('title'),'','Common has title');
+            strictEqual(common.get('answer'),'','Common has answer');
+            strictEqual(common.get('type'),'','Common has type');
+            strictEqual(common.get('link'),'','Common has link');
+            strictEqual(common.get('index'),'','Common has index');
         });
         test('use server data for init',function(){
             var tunet = new Tunet();
@@ -90,6 +97,15 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(career.get('answer'),career_src.answer,'After adapting, career has answer');
             equal(career.get('link'),career_src.link,'After adapting, career has link');
             equal(career.get('index'),career_src.resultIndex,'After adapting, career has index');
+
+            var common = new Common();
+            var common_src = Fixture.ArtSchool;
+            common.adapt_from(common_src);
+            equal(common.get('title'),common_src.question,'After adapting, common has title');
+            equal(common.get('type'),common_src.type,'After adapting, common has question');
+            equal(common.get('answer'),common_src.answer,'After adapting, common has answer');
+            equal(common.get('link'),common_src.link,'After adapting, common has link');
+            equal(common.get('index'),common_src.resultIndex,'After adapting, common has index');
         });
     };
     return {run:run};

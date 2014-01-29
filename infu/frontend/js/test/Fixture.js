@@ -46,11 +46,19 @@ define(function () {
         "title": "22.\u5df2\u7533\u8bf7\u81ea\u8d39\u51fa\u56fd\uff08\u5883\uff09\u7559\u5b66\u7684\u6bd5\u4e1a\u751f\u53ef\u4ee5\u4e0e\u7528\u4eba\u5355\u4f4d\u7b7e\u8ba2\u4e09\u65b9\u300a\u5c31\u4e1a\u534f\u8bae\u4e66\u300b\u5417\uff1f",
         "type": "career"
     };
+    var art_school = {
+        "answer": " \r\n              \u3000 \u51e1\u662f\u6ca1\u6709\u672c\u6821\u6b63\u5f0f\u5b66\u53f7\u7684\u5b66\u751f\uff0c\u5982\uff1a\u8fdb\u4fee\u751f\u3001\u65c1\u542c\u751f\u7b49\uff0c\u9996\u5148\u8981\u643a\u5e26\u80fd\u8bc1\u660e\u4f60\u5b66\u751f\u8eab\u4efd\u7684\u6821\u5185\u6709\u6548\u8bc1\u4ef6\u548c\u9009\u8bfe\u8bfe\u8868\uff0c\u5230\u7f51\u7edc\u5b66\u5802\u529e\u7406\u8d26\u53f7\u548c\u9009\u8bfe\u624b\u7eed\u3002 \r\n              \u3000\u529e\u516c\u5730\u70b9\uff1a\u4e09\u65593101\u623f\u95f4 \u6ce8\u518c\u4e2d\u5fc3 \r\n              \u3000\u529e\u516c\u7535\u8bdd\uff1a62788122 ",
+        "link": "http://www.ad.tsinghua.edu.cn/publish/ad/2884/2010/20101217102450591467044/20101217102450591467044_.html",
+        "question": "\u8fdb\u4fee\u751f\u3001\u65c1\u542c\u751f\u6ca1\u6709\u672c\u6821\u6b63\u5f0f\u7684\u5b66\u751f\u5b66\u53f7\uff0c\u5982\u4f55\u8fdb\u5165\u7f51\u7edc\u5b66\u5802\u5b66\u4e60\uff1f",
+        "resultIndex": 1,
+        "type": "artschool"
+    };
     return {
         Tunet:tunet,
         MyHome:my_home,
         Lib:lib,
         Chemschool:chemschool,
-        Career:career
+        Career:career,
+        ArtSchool:art_school
     };
 });
