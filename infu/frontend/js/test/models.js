@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Chemschool,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Career,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -36,6 +36,13 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             strictEqual(chemschool.get('link'),'','Chemschool has link');
             strictEqual(chemschool.get('index'),'','Chemschool has index');
             strictEqual(chemschool.get('author'),'化学系FAQ','Chemschool has author');
+            
+            var career = new Career();
+            strictEqual(career.get('title'),'','Career has title');
+            strictEqual(career.get('answer'),'','Career has answer');
+            strictEqual(career.get('question'),'','Career has question');
+            strictEqual(career.get('link'),'','Career has link');
+            strictEqual(career.get('index'),'','Career has index');
         });
         test('use server data for init',function(){
             var tunet = new Tunet();
@@ -74,6 +81,15 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(chemschool.get('link'),chemschool_src.link,'After adapting, chemschool has link');
             equal(chemschool.get('index'),chemschool_src.resultIndex,'After adapting, chemschool has index');
             equal(chemschool.get('author'),'化学系FAQ','After adapting, chemschool has author');
+            
+            var career = new Career();
+            var career_src = Fixture.Career;
+            career.adapt_from(career_src);
+            equal(career.get('title'),career_src.title,'After adapting, career has title');
+            equal(career.get('question'),career_src.question,'After adapting, career has question');
+            equal(career.get('answer'),career_src.answer,'After adapting, career has answer');
+            equal(career.get('link'),career_src.link,'After adapting, career has link');
+            equal(career.get('index'),career_src.resultIndex,'After adapting, career has index');
         });
     };
     return {run:run};
