@@ -13,7 +13,8 @@ define(['backbone'],function (Backbone) {
             author_id:'',
             author_name:'',
             index:'',
-            comment_list:[]
+            comment_list:[],
+            type:'infu'
         },
         adapt_from:function(src){
             this.set('title',src.title);
