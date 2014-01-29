@@ -21,8 +21,16 @@ define(function () {
         "title": "\u5b66\u6821\u5783\u573e\u8f66\u5de5\u4f5c\u6280\u672f\u9700\u8981\u6539\u8fdb",
         "type": "myhome"
     };
+    var lib = {
+        "answer": "\u8054\u7cfb\u4eba\uff1a\u5468\u5a1c\u3000Selina\r\niGroup\u4e9a\u592a\u8d44\u8baf\u96c6\u56e2\u5317\u4eac\u529e\u4e8b\u5904\r\n\u7535\u8bdd\uff1a86-10-82331971-836\r\nEmail\uff1aselina@igroup.com.cn\r\n\r\n\u6216\u89c1CALIS\u5de5\u7a0b\u4e2d\u5fc3\u4e3b\u9875http://166.111.120.70:8000/portal/portal/media-type/html/group/usrguest/page/lxsjks.psml",
+        "link": "http://vrs.lib.tsinghua.edu.cn/pub/FAQ_View.asp?id=725&ClassId=58&SearchStr=",
+        "question": "AIP/APS (iGroup\u4ee3\u7406)",
+        "resultIndex": 1,
+        "type": "lib"
+    };
     return {
         Tunet:tunet,
-        MyHome:my_home
+        MyHome:my_home,
+        Lib:lib
     };
 });
