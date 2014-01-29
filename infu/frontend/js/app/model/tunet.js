@@ -9,7 +9,8 @@ define(['backbone'],function (Backbone) {
             answer:'',
             time:'',
             link:'',
-            index:''
+            index:'',
+            type:'tunet'
         },
         adapt_from:function(src){
             this.set('title',src.question);

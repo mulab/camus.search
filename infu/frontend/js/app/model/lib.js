@@ -10,7 +10,8 @@ define(['backbone'],function (Backbone) {
             time:'',
             link:'',
             index:'',
-            author:'图书馆读者之声'
+            author:'图书馆读者之声',
+            type:'libauthor'
         },
         adapt_from:function(src){
             this.set('title',src.question);

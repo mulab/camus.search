@@ -11,7 +11,8 @@ define(['backbone'],function (Backbone) {
             time:'',
             link:'',
             index:'',
-            author:'化学系FAQ'
+            author:'化学系FAQ',
+            type:'chemschool'
         },
         adapt_from:function(src){
             this.set('title',src.title);
