@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -27,6 +27,15 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','test/fixture','und
             strictEqual(lib.get('link'),'','Lib has link');
             strictEqual(lib.get('index'),'','Lib has index');
             strictEqual(lib.get('author'),'图书馆读者之声','Lib has author');
+
+            var chemschool = new Chemschool();
+            strictEqual(chemschool.get('title'),'','Chemschool has title');
+            strictEqual(chemschool.get('question'),'','Chemschool has question');
+            strictEqual(chemschool.get('answer'),'','Chemschool has answer');
+            strictEqual(chemschool.get('time'),'','Chemschool has time');
+            strictEqual(chemschool.get('link'),'','Chemschool has link');
+            strictEqual(chemschool.get('index'),'','Chemschool has index');
+            strictEqual(chemschool.get('author'),'化学系FAQ','Chemschool has author');
         });
         test('use server data for init',function(){
             var tunet = new Tunet();
@@ -54,6 +63,17 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','test/fixture','und
             equal(lib.get('link'),lib_src.link,'After adapting, lib has link');
             equal(lib.get('index'),lib_src.resultIndex,'After adapting, lib has index');
             equal(lib.get('author'),'图书馆读者之声','After adapting, lib has author');
+            
+            var chemschool = new Chemschool();
+            var chemschool_src = Fixture.Chemschool;
+            chemschool.adapt_from(chemschool_src);
+            equal(chemschool.get('title'),chemschool_src.title,'After adapting, chemschool has title');
+            equal(chemschool.get('question'),chemschool_src.question,'After adapting, chemschool has question');
+            equal(chemschool.get('answer'),chemschool_src.answer,'After adapting, chemschool has answer');
+            equal(chemschool.get('time'),chemschool_src.date,'After adapting, chemschool has time');
+            equal(chemschool.get('link'),chemschool_src.link,'After adapting, chemschool has link');
+            equal(chemschool.get('index'),chemschool_src.resultIndex,'After adapting, chemschool has index');
+            equal(chemschool.get('author'),'化学系FAQ','After adapting, chemschool has author');
         });
     };
     return {run:run};
