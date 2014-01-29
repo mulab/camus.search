@@ -9,7 +9,8 @@ define(['backbone'],function (Backbone) {
             answer:'',
             link:'',
             index:'',
-            type:''
+            type:'',
+            author:''
         },
         adapt_from:function(src){
             this.set('title',src.question);
@@ -17,6 +18,12 @@ define(['backbone'],function (Backbone) {
             this.set('link',src.link);
             this.set('index',src.resultIndex);
             this.set('type',src.type);
+            var authors = {
+                'artschool':'美院招生FAQ',
+                'learnfaq':'网络学堂FAQ',
+                'lib':'图书馆咨询台'
+            };
+            this.set('author',authors[src.type]);
         }
     });
     return Common;

@@ -50,6 +50,7 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             strictEqual(common.get('type'),'','Common has type');
             strictEqual(common.get('link'),'','Common has link');
             strictEqual(common.get('index'),'','Common has index');
+            strictEqual(common.get('author'),'','Common has author')
         });
         test('use server data for init',function(){
             var tunet = new Tunet();
@@ -106,6 +107,7 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(common.get('answer'),common_src.answer,'After adapting, common has answer');
             equal(common.get('link'),common_src.link,'After adapting, common has link');
             equal(common.get('index'),common_src.resultIndex,'After adapting, common has index');
+            equal(common.get('author'),'美院招生FAQ','After adapting, common has author');
         });
     };
     return {run:run};
