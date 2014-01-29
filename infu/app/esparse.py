@@ -10,10 +10,10 @@ class EsParse:
         result = []
         index = 0
         for item in es_result:
-            index += 1
             parse_item = self.__parse(item)
             parse_item['resultIndex'] = index
             result.append(parse_item)
+            index += 1
         self.result = result
 
     # noinspection PyProtectedMember
