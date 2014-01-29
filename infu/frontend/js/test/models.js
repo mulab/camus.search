@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -50,7 +50,7 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             strictEqual(common.get('type'),'','Common has type');
             strictEqual(common.get('link'),'','Common has link');
             strictEqual(common.get('index'),'','Common has index');
-            strictEqual(common.get('author'),'','Common has author')
+            strictEqual(common.get('author'),'','Common has author');
         });
         test('use server data for init',function(){
             var tunet = new Tunet();
@@ -108,6 +108,19 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(common.get('link'),common_src.link,'After adapting, common has link');
             equal(common.get('index'),common_src.resultIndex,'After adapting, common has index');
             equal(common.get('author'),'美院招生FAQ','After adapting, common has author');
+
+            var infu = new Infu();
+            var infu_src = Fixture.Infu;
+            infu.adapt_from(infu_src);
+            equal(infu.get('title'),infu_src.title,'Infu has title');
+            equal(infu.get('large_url'),infu_src.largeUrl,'Infu has large url');
+            equal(infu.get('photo_id'),infu_src.photoId,'Infu has photo id');
+            equal(infu.get('comment_count'),infu_src.commentCount,'Infu has comment count');
+            equal(infu.get('time'),infu_src.time,'Infu has time');
+            equal(infu.get('author_id'),infu_src.authorId,'Infu has author id');
+            equal(infu.get('author_name'),infu_src.author,'Infu has author name');
+            equal(infu.get('index'),infu_src.resultIndex,'Infu has index');
+            equal(_.difference(infu.get('comment_list'),infu_src.commentList).length,0,'Infu has index');
         });
     };
     return {run:run};
