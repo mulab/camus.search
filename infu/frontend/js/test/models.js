@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','app/model_factory','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Factory,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -121,6 +121,15 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(infu.get('author_name'),infu_src.author,'Infu has author name');
             equal(infu.get('index'),infu_src.resultIndex,'Infu has index');
             equal(_.difference(infu.get('comment_list'),infu_src.commentList).length,0,'Infu has index');
+        });
+        test('model factory',function(){
+            equal(Factory.create(Fixture.Tunet).get('type'),'tunet','factory can create tunet model');
+            equal(Factory.create(Fixture.MyHome).get('type'),'myhome','factory can create myhome model');
+            equal(Factory.create(Fixture.Lib).get('type'),'lib','factory can create lib model');
+            equal(Factory.create(Fixture.Chemschool).get('type'),'chemschool','factory can create lib model');
+            equal(Factory.create(Fixture.Career).get('type'),'career','factory can create career model');
+            equal(Factory.create(Fixture.ArtSchool).get('type'),'artschool','factory can create artschool model');
+            equal(Factory.create(Fixture.Infu).get('type'),'infu','factory can create infu model');
         });
     };
     return {run:run};
