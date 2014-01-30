@@ -1,0 +1,131 @@
+@import "page";
+@import "routine";
+@import "var";
+@import "reset";
+html,body,.page{
+  height:100%
+}
+label,[type=check]{
+  color:#ffffff;
+}
+.page{
+  .header{
+//    .page.page-header();
+    .header-content{
+//      .page.page-header.page-header-content();
+    }
+  }
+  .container {
+    width: 90%;
+    max-width: 1260px; /* 可能需要最大宽度，以防止此布局在大型显示器上过宽。这将使行长度更便于阅读。IE6 不遵循此声明。 */
+    min-width: 780px; /* 可能需要最小宽度，以防止此布局过窄。这将使侧面列中的行长度更便于阅读。IE6 不遵循此声明。 */
+    background-color: #FFF;
+    margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐。如果将 .container 宽度设置为 100%，则不需要此设置。 */
+    margin-top: 20px;
+    overflow: hidden; /* 此声明将使 .container 清除其包含的所有浮动列。 */
+    position: absolute;
+    left: 5%;
+    top: auto;
+    .result-list{
+      padding: 10px 0;
+      width: 40%;
+      float: left;
+      margin-right: 10%;
+      min-width: 200px;
+      /*position: absolute;*/
+      /*left: 0px;*/
+      /*top: 0px;*/
+    }
+    .result-detail{
+      float: right;
+      width: 50%;
+      padding-bottom: 10px;
+      min-width: 200px;
+    }
+  }
+}
+.searchbox{
+  #keyword{
+    width: 30%;
+    min-width: 200px;
+    left: 20%;
+    position: relative;
+    height: 32px;
+  }
+  #doctype{
+    width: 100%;
+    margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐。如果将 .container 宽度设置为 100%，则不需要此设置。 */
+    position: absolute;
+    background: inherit;
+    padding-left: 20%;
+  }
+  #btn-query{
+    left: 21%;
+    position: relative;
+    background-color: rgb(241, 241, 241);
+    border: 2px solid rgba(0, 0, 0, 0.098);
+    top: 5px;
+    color: #000000;
+  }
+}
+
+button, .button {
+  &.mini {
+    font-size: .9em !important;
+  }
+}
+.result-list{
+  .result-item{
+    font-size: 13px;
+    line-height: 16px;
+    color: rgb(68, 68, 68);
+    border-bottom: 23px;
+    border-style: solid;
+    border-color: #ffffff;
+    width: 100%;
+    position: relative;
+    left: 0px;
+    cursor: pointer;
+    .result-title {
+      font-size: 16px;
+      line-height: 16px;
+      text-decoration: underline;
+      color: rgb(0, 0, 255);
+    }
+    .result-author {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+    }
+    &.result-selected {
+      color: rgb(255, 255, 255);
+      background-color: rgb(156, 156, 156);
+      border-radius: 3px;
+      border-color: rgb(156, 156, 156);
+    }
+  }
+  .result-pagination{
+    a.current{
+      color: #000000;
+    }
+  }
+}
+
+
+.result-detail{
+  .result-comment {
+    font-size: 13px;
+    line-height: 16px;
+    color: rgb(68, 68, 68);
+  }
+  .result-comment-detail {
+    margin-top: 1px;
+    margin-right: 1px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(214, 214, 214);
+    border-right-color: rgb(214, 214, 214);
+    border-bottom-color: rgb(214, 214, 214);
+    border-left-color: rgb(214, 214, 214);
+  }
+}

@@ -53,3 +53,6 @@ out/
 
 #bower
 bower_components/
+
+#less compile
+infu/frontend/css/*.css

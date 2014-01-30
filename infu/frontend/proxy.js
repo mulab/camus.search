@@ -27,5 +27,9 @@ module.exports = [
     {
         pattern: 'static/js/lib/handlebars.js',
         responder: path+'/bower_components/handlebars/handlebars.js'
+    },
+    {
+        pattern: 'static/css/theme.css',
+        responder: path+'/css/theme.css'
     }
 ];
