@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','app/model_factory','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Factory,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','app/model_factory','app/model/result_list','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Factory,ResultList,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -130,6 +130,12 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(Factory.create(Fixture.Career).get('type'),'career','factory can create career model');
             equal(Factory.create(Fixture.ArtSchool).get('type'),'artschool','factory can create artschool model');
             equal(Factory.create(Fixture.Infu).get('type'),'infu','factory can create infu model');
+        });
+        test('result list model',function(){
+            var result_list = new ResultList();
+            result_list.adapt_from(Fixture.ResultList);
+            equal(result_list.get('count'),10);
+            console.log(result_list.toJSON());
         });
     };
     return {run:run};
