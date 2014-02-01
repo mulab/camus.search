@@ -56,3 +56,6 @@ bower_components/
 
 #less compile
 infu/frontend/css/*.css
+
+# data of crawler
+infu/crawler/data
