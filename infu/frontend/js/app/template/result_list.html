@@ -16,14 +16,8 @@
 {{~/result~}}
 {{#pagination ~}}
 <div class="result-pagination">
-    {{~#if pre}}
-    <a href=":;">上一页</a>
-    {{/if~}}
-    {{#pageList}}
+    {{~#pageList}}
     <a href="{{pageLink}}" class="{{current}}">{{pageNum}}</a>
-    {{/pageList}}
-    {{~#if next}}
-    <a href=":;">下一页</a>
-    {{/if~}}
+    {{~/pageList~}}
 </div>
 {{~/pagination~}}
