@@ -1,3 +1,4 @@
+<div class="result-total">查询结果数：{{count}}</div>
 {{#result ~}}
 {{~#isInfu}}
 <div class="result-item">
@@ -13,3 +14,16 @@
 </div>
 {{~/isInfu~}}
 {{~/result~}}
+{{#pagination ~}}
+<div class="result-pagination">
+    {{~#if pre}}
+    <a href=":;">上一页</a>
+    {{/if~}}
+    {{#pageList}}
+    <a href="{{pageLink}}" class="{{current}}">{{pageNum}}</a>
+    {{/pageList}}
+    {{~#if next}}
+    <a href=":;">下一页</a>
+    {{/if~}}
+</div>
+{{~/pagination~}}
