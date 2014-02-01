@@ -17,7 +17,6 @@ define(['jquery','underscore','backbone','app/view/result_list','app/view/header
             query: function (keywords, type, start) {
                 var type_array = [];
                 start = start || 0;
-                query_model.set('start',start);
                 _.each(doctypes.value, function (value, key) {
                     //noinspection JSBitwiseOperatorUsage
                     if (type & value)type_array.push(key);
