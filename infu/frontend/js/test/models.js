@@ -2,8 +2,8 @@
  * Created by guangchen on 1/28/14.
  */
 "use strict";
-define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','app/model_factory','app/model/result_list','test/fixture','underscore'],
-    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Factory,ResultList,Fixture,_) {
+define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemschool','app/model/career','app/model/common','app/model/infu','app/model_factory','app/model/result_list','app/model/query','test/fixture','underscore'],
+    function (Tunet,MyHome,Lib,Chemschool,Career,Common,Infu,Factory,ResultList,Query,Fixture,_) {
     var run = function(){
         test('load models',function(){
             var tunet = new Tunet();
@@ -136,6 +136,13 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             result_list.adapt_from(Fixture.ResultList);
             equal(result_list.get('count'),10);
             console.log(result_list.toJSON());
+        });
+        test('query model',function(){
+            var query = new Query();
+            query.set({
+                type:7
+            });
+            equal(query.serialize(),'#query/k/t7/s0');
         });
     };
     return {run:run};
