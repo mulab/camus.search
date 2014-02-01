@@ -21,6 +21,7 @@
     "backbone": "~1",
     "underscore": "~1",
     "handlebars": "~1",
-    "qunit": "~1"
+    "qunit": "~1",
+    "requirejs-text": "~2"
   }
 }

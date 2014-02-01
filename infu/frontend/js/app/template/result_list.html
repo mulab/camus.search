@@ -1,0 +1,15 @@
+{{#result ~}}
+{{~#isInfu}}
+<div class="result-item">
+    <div class="result-title">{{{title}}}</div>
+    <div class="result-comment">评论数量：{{comment_count}}</div>
+    <div class="result-time">{{time}}</div>
+    <div class="result-author">尹福:<a href="http://www.renren.com/{{author_id}}" target="_blank">{{author_name}}</a></div>
+</div>
+{{~else~}}
+<div class="result-item">
+    <div class="result-title">{{{title}}}</div>
+    <div class="result-author">{{author}}</div>
+</div>
+{{~/isInfu~}}
+{{~/result~}}
