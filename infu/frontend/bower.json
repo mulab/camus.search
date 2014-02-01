@@ -22,6 +22,7 @@
     "underscore": "~1",
     "handlebars": "~1",
     "qunit": "~1",
-    "requirejs-text": "~2"
+    "requirejs-text": "~2",
+    "json2": "*"
   }
 }

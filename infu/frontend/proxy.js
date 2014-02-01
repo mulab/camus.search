@@ -21,6 +21,10 @@ module.exports = [
         responder:path+'/js/app/$1'
     },
     {
+        pattern:'static/js/lib/json2.js',
+        responder:path+'/bower_components/json2/json2.js'
+    },
+    {
         pattern: 'static/js/lib/jquery.js',
         responder: path+'/bower_components/jquery/jquery.js'
     },
