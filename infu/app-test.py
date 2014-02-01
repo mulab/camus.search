@@ -18,7 +18,7 @@ class AppTestCase(unittest.TestCase):
         response = self.app.get('/query')
         data = response.data
         result = jsonlib.loads(data)
-        assert result['count'] == 10
+        assert len(result['result']) == 10
         item = result['result'][0]
         assert u'resultIndex' in item
         assert u'type' in item
@@ -27,14 +27,14 @@ class AppTestCase(unittest.TestCase):
         response = self.app.get('/query?keywords=a')
         data = response.data
         result = jsonlib.loads(data)
-        assert result['count'] == 10
+        assert len(result['result']) == 10
         item = result['result'][0]
         assert u'a' in item['question'] or u'a' in item['answer'] or u'a' in item['title']
 
     def test_query_with_size(self):
         response = self.app.get('/query?size=15')
         result = jsonlib.loads(response.data)
-        assert result['count'] == 15
+        assert len(result['result']) == 15
 
     def test_query_with_type(self):
         response = self.app.get('/query?type=["tunet"]')
@@ -58,7 +58,7 @@ class AppTestCase(unittest.TestCase):
     def test_query_by_post(self):
         headers = [('Content-Type', 'application/json')]
         result = jsonlib.loads(self.app.post('/query', {}).data)
-        assert result['count'] == 10
+        assert len(result['result']) == 10
         item = result['result'][0]
         assert u'resultIndex' in item
         assert u'type' in item
@@ -69,7 +69,7 @@ class AppTestCase(unittest.TestCase):
         data = self.app.post('/query', headers=headers, data=jsonlib.dumps(data)).data
         origin_result = jsonlib.loads(data)
         offset_result = jsonlib.loads(data)
-        assert origin_result['count'] == 15
+        assert len(origin_result['result']) == 15
         origin_item = origin_result['result'][1]
         offset_item = offset_result['result'][0]
         assert offset_item['type'] == origin_item['type'] == u'lib'
