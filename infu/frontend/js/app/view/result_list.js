@@ -13,7 +13,7 @@ define(['jquery','backbone','handlebars','text!app/template/result_list.html'],
         });
         Handlebars.registerHelper('pageList', function(options){
             var ret = "",current=this.current,max=this.max,query=this.query,page_size=this.page_size,
-                start=current-5,end=current+ 4,i;
+                start=current-5,end=current+ 4, i,data={};
             if(start<=0){
                 end=end-start+1;
                 start=1;
@@ -25,11 +25,22 @@ define(['jquery','backbone','handlebars','text!app/template/result_list.html'],
             if(start<=0){
                 start=1;
             }
+            if(current>1){
+                data.pageNum='上一页';
+                data.pageLink = '#query/k'+query.get('keywords')+'/t'+query.get('type')+'/s'+(current-2)*page_size;
+                ret+=options.fn(data);
+            }
             for(i=start;i<=end;i++){
-                this.pageNum=(i==current)?i:'['+i+']';
-                this.current = (i==current)?'current':'';
-                this.pageLink = '#query/k'+query.get('keywords')+'/t'+query.get('type')+'/s'+(i-1)*page_size;
-                ret+=options.fn(this);
+                data.pageNum=(i==current)?i:'['+i+']';
+                data.current = (i==current)?'current':'';
+                data.pageLink = '#query/k'+query.get('keywords')+'/t'+query.get('type')+'/s'+(i-1)*page_size;
+                ret+=options.fn(data);
+            }
+            data={};
+            if(current<max){
+                data.pageNum='下一页';
+                data.pageLink = '#query/k'+query.get('keywords')+'/t'+query.get('type')+'/s'+(current)*page_size;
+                ret+=options.fn(data);
             }
             return ret;
         });
@@ -44,11 +55,8 @@ define(['jquery','backbone','handlebars','text!app/template/result_list.html'],
                         page_size = model.page_size,
                         count = model.count,
                         max_page = parseInt((count-1)/page_size) + 1,
-                        current_page = parseInt(start/page_size) + 1,
                         pagination = {};
-                    if(current_page > 1)pagination.pre = true;
-                    if(current_page < max_page)pagination.next = true;
-                    pagination.current = current_page;
+                    pagination.current = parseInt(start / page_size) + 1;
                     pagination.max = max_page;
                     pagination.page_size = page_size;
                     pagination.query = model.query;
