@@ -10,7 +10,7 @@ define(['backbone'],function (Backbone) {
             start:0
         },
         serialize: function () {
-            return '#query/k'+this.get('keywords')+'/t'+this.get('type')+'/s'+this.get('start');
+            return '#query/k'+encodeURI(this.get('keywords'))+'/t'+this.get('type')+'/s'+this.get('start');
         }
     });
     return query;

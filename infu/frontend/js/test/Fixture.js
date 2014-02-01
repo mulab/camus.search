@@ -72,7 +72,9 @@ define(function () {
         "type": "infu"
     };
     var result_list = {
-        "count": 10,
+        "start": 11,
+        "size": 10,
+        "count": 150,
         "result": [
             {
                 "answer": "It depends. Usually you should download in a speed which is comparable to a reasonable reading speed. Otherwise, databases have the right to block all users from Tsinghua University.",
