@@ -50,23 +50,21 @@ label,[type=check]{
   }
 }
 .searchbox{
+  text-align: center;
   #keyword{
     width: 30%;
     min-width: 200px;
-    left: 20%;
-    position: relative;
     height: 32px;
   }
   #doctype{
     width: 100%;
-    margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐。如果将 .container 宽度设置为 100%，则不需要此设置。 */
-    position: absolute;
+    position: relative;
     background: inherit;
-    padding-left: 20%;
+    margin: 0 auto;
   }
   #btn-query{
-    left: 21%;
     position: relative;
+    margin-left: 10px;
     background-color: rgb(241, 241, 241);
     border: 2px solid rgba(0, 0, 0, 0.098);
     top: 5px;
@@ -145,5 +143,19 @@ button, .button {
     border-right-color: rgb(214, 214, 214);
     border-bottom-color: rgb(214, 214, 214);
     border-left-color: rgb(214, 214, 214);
+  }
+  .segment {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(65, 65, 65);
+  }
+  .light-segment {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(203, 203, 203);
   }
 }

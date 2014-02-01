@@ -70,9 +70,12 @@ define(['jquery','backbone','handlebars','text!app/template/result_list.html','a
                 'click .result-item':'showDetail'
             },
             showDetail:function(event){
-                var index = $(event.currentTarget).attr('result-index'),
+                var $target = $(event.currentTarget),
+                    index = $target.attr('result-index'),
                     model = this.model.get('result')[index],
                     view = new ResultDetailView({el:'.result-detail',model:model});
+                $('.result-selected',this.el).removeClass('result-selected');
+                $target.addClass('result-selected');
                 view.render();
             }
         });
