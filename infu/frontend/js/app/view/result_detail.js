@@ -13,8 +13,9 @@ define(['jquery','underscore','backbone','handlebars','text!app/template/result_
             template:tmpl,
             render:function(){
                 var view = this, rendered,
-                    template = Handlebars.compile(view.template),
-                    model = this.model.toJSON();
+                    template = Handlebars.compile(view.template);
+                var model = this.model;
+                if(model.toJSON)model=model.toJSON();
                 rendered = template(model);
                 $(view.el).html(rendered);
                 return view;
