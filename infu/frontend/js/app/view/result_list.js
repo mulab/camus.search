@@ -2,8 +2,8 @@
  * Created by guangchen on 1/30/14.
  */
 "use strict";
-define(['jquery','backbone','handlebars','text!app/template/result_list.html'],
-    function ($,Backbone,Handlebars,tmpl) {
+define(['jquery','backbone','handlebars','text!app/template/result_list.html','app/view/result_detail'],
+    function ($,Backbone,Handlebars,tmpl,ResultDetailView) {
         Handlebars.registerHelper('isInfu', function(options){
             if(this.type == 'infu'){
                 return options.fn(this);
@@ -65,6 +65,15 @@ define(['jquery','backbone','handlebars','text!app/template/result_list.html'],
                 })());
                 $(view.el).html(rendered);
                 return view;
+            },
+            events:{
+                'click .result-item':'showDetail'
+            },
+            showDetail:function(event){
+                var index = $(event.currentTarget).attr('result-index'),
+                    model = this.model.get('result')[index],
+                    view = new ResultDetailView({el:'.result-detail',model:model});
+                view.render();
             }
         });
 });
