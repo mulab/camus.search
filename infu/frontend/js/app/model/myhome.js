@@ -10,7 +10,8 @@ define(['backbone'],function (Backbone) {
             answers:[],
             link:'',
             index:'',
-            type:'myhome'
+            type:'myhome',
+            author:'我的家园'
         },
         adapt_from:function(src){
             this.set('title',src.title);
