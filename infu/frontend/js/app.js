@@ -20,9 +20,13 @@ requirejs.config({
     }
 });
 
-requirejs(['jquery','underscore','backbone','handlebars'],function($,_,Backbone,Handlebars){
-    console.log('Backbone#'+Backbone.VERSION);
-    console.log('jquery#'+ $(this).jquery);
-    console.log('underscore#'+ _.VERSION);
-    console.log('handlebars#'+Handlebars.VERSION);
-});
+requirejs(['jquery','underscore','backbone','handlebars','app/main'],
+    function($,_,Backbone,Handlebars,App){
+        console.log('Backbone#'+Backbone.VERSION);
+        console.log('jquery#'+ $(this).jquery);
+        console.log('underscore#'+ _.VERSION);
+        console.log('handlebars#'+Handlebars.VERSION);
+        var app = new App();
+        Backbone.history.start();
+    }
+);
