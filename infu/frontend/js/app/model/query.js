@@ -8,9 +8,6 @@ define(['backbone'],function (Backbone) {
             keywords:'',
             type:0,
             start:0
-        },
-        serialize: function () {
-            return '#query/k'+encodeURI(this.get('keywords'))+'/t'+this.get('type')+'/s'+this.get('start');
         }
     });
     return query;

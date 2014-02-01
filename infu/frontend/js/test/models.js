@@ -139,13 +139,6 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             equal(result_list.get('page_size'),Fixture.ResultList.size);
             console.log(result_list.toJSON());
         });
-        test('query model',function(){
-            var query = new Query();
-            query.set({
-                type:7
-            });
-            equal(query.serialize(),'#query/k/t7/s0');
-        });
     };
     return {run:run};
 });
