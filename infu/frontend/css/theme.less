@@ -5,6 +5,11 @@
 html,body,.page{
   height:100%
 }
+em {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  font-style: normal;
+}
 label,[type=check]{
   color:#ffffff;
 }
@@ -71,6 +76,7 @@ label,[type=check]{
 }
 
 button, .button {
+  cursor: pointer;
   &.mini {
     font-size: .9em !important;
   }
@@ -99,11 +105,15 @@ button, .button {
       line-height: 16px;
       text-decoration: underline;
       color: rgb(0, 0, 255);
+      width: 100%;
+      white-space: normal;
+      word-break: break-all;
     }
     .result-author {
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
+
+    }
+    .result-time{
+
     }
     &.result-selected {
       color: rgb(255, 255, 255);
