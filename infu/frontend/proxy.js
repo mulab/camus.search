@@ -9,8 +9,16 @@ module.exports = [
         responder: path+'/bower_components/requirejs/require.js'
     },
     {
+        pattern: 'static/js/lib/text.js',
+        responder: path+'/bower_components/requirejs-text/text.js'
+    },
+    {
         pattern: 'static/js/app.js',
         responder: path+'/js/app.js'
+    },
+    {
+        pattern:/static\/js\/app\/(.*)/,
+        responder:path+'/js/app/$1'
     },
     {
         pattern: 'static/js/lib/jquery.js',
