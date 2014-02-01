@@ -19,6 +19,9 @@ class AppTestCase(unittest.TestCase):
         data = response.data
         result = jsonlib.loads(data)
         assert len(result['result']) == 10
+        assert u'count' in result
+        assert u'start' in result
+        assert u'size' in result
         item = result['result'][0]
         assert u'resultIndex' in item
         assert u'type' in item

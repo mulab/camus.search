@@ -5,7 +5,7 @@ import json as jsonlib
 from app import app
 
 __size__ = 10
-__es_url__ = 'www.lab.mu:9200'
+__es_url__ = '127.0.0.1:9200'
 
 @app.route('/')
 def index():
@@ -42,4 +42,4 @@ def query():
     q.add_highlight('info.title')
     es_result = conn.search(q, indices='qa', doc_types=doctype)
     result = esparse.EsParse(es_result).result
-    return jsonify(result=result, count=es_result.total)
+    return jsonify(result=result, count=es_result.total, start=start_index, size=page_size)
