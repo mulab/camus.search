@@ -135,6 +135,8 @@ define(['app/model/tunet','app/model/myhome','app/model/lib','app/model/chemscho
             var result_list = new ResultList();
             result_list.adapt_from(Fixture.ResultList);
             equal(result_list.get('count'),10);
+            equal(result_list.get('start'),0);
+            equal(result_list.get('page_size'),10);
             console.log(result_list.toJSON());
         });
         test('query model',function(){
