@@ -59,3 +59,5 @@ infu/frontend/css/*.css
 
 # data of crawler
 infu/crawler/data
+# !add static
+!infu/app/static/js/lib
