@@ -5,6 +5,8 @@ elasticsearch配置
 
 部署时直接将该目录下文件覆盖/elasticsearch-rtf相同文件即可
 
+http://www.elasticsearch.org/guide/
+
 ### Basic configuration (Running as Service)
  * http://www.elasticsearch.org/guide/reference/setup/installation/
 
@@ -23,4 +25,4 @@ elasticsearch配置
 
 ### Others
  * https://github.com/spinscale/elasticsearch-suggest-plugin
- * http://spinscale.github.io/elasticsearch-intro-plugins/#/44
+ * http://spinscale.github.io/elasticsearch-intro-plugins
