@@ -6,7 +6,7 @@ from browser import albumBrowser
 if __name__ == '__main__':
     # input parameter
     # - login method (pLogin/loginByCookie/webLogin)
-    # currently only webLogin works well
+    # TODO: currently only webLogin works well
     if len(sys.argv) == 2:
         if sys.argv[1] == 'loginByCookie':
             rr = albumBrowser()
