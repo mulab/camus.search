@@ -2,6 +2,12 @@
 @import "routine";
 @import "var";
 @import "reset";
+@import "mixins";
+@import "variables";
+@import "scaffolding";
+@import "layouts";
+@import "navbar";
+@import "breadcrumbs";
 html,body,.page{
   height:100%
 }
@@ -14,13 +20,22 @@ label,[type=check]{
   color:#ffffff;
 }
 .page{
-  .header{
-//    .page.page-header();
+  .navbars{
+    .bg-color-blueDark();
+    .breadcrumb{
+      .bg-color-blueDark();
+      .active{
+        .fg-color-white();
+      }
+      a{
+        .fg-color-white();
+      }
+    }
     .header-content{
 //      .page.page-header.page-header-content();
     }
   }
-  .container {
+  .content {
     width: 90%;
     max-width: 1260px; /* 可能需要最大宽度，以防止此布局在大型显示器上过宽。这将使行长度更便于阅读。IE6 不遵循此声明。 */
     min-width: 780px; /* 可能需要最小宽度，以防止此布局过窄。这将使侧面列中的行长度更便于阅读。IE6 不遵循此声明。 */
@@ -56,12 +71,6 @@ label,[type=check]{
     min-width: 200px;
     height: 32px;
   }
-  #doctype{
-    width: 100%;
-    position: relative;
-    background: inherit;
-    margin: 0 auto;
-  }
   #btn-query{
     position: relative;
     margin-left: 10px;
@@ -70,7 +79,6 @@ label,[type=check]{
     top: 5px;
     color: #000000;
   }
-  .bg-color-blueDark()
 }
 
 button, .button {
