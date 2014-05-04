@@ -43,5 +43,9 @@ module.exports = [
     {
         pattern: 'static/css/theme.css',
         responder: path+'/css/theme.css'
+    },
+    {
+        pattern: 'static/js/lib/bootstrap.js',
+        responder: path+'/bower_components/bootstrap/docs/assets/js/bootstrap.js'
     }
 ];

@@ -23,6 +23,7 @@
     "handlebars": "~1",
     "qunit": "~1",
     "requirejs-text": "~2",
-    "json2": "*"
+    "json2": "*",
+    "bootstrap": "~2"
   }
 }
