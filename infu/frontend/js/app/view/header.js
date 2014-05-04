@@ -33,38 +33,12 @@ define(['underscore','handlebars','backbone','text!app/template/header.html','ap
             },
             events:{
                 'keydown #keyword':'onKeywordsChange',
-                'change #keyword':'onKeywordsChange',
-                'change input[type="checkbox"]':'onDoctypeChange'
+                'change #keyword':'onKeywordsChange'
             },
             onKeywordsChange:function(event){
                 var keywords = $(event.currentTarget).val();
                 this.model.set('keywords',keywords);
-                $('#btn-query',this.el).attr('href','#query/k'+this.model.get('keywords')+'/t'+this.model.get('type'));
-            },
-            onDoctypeChange:function(event){
-                var type = this.model.get('type'),
-                    $target = $(event.currentTarget),
-                    value = $target.val(),
-                    checked = $target.prop('checked');
-                if(value==0){
-                    $('input',this.el).prop('checked',checked);
-                    this.model.set('type',0);
-                }else{
-                    if(checked){
-                        type+=(value*1);
-                        type = type % (Math.pow(2, _.size(doctypes.value))-1);
-                        if(type==0)
-                            $('input[value="0"],this.el').prop('checked',true);
-                        this.model.set('type',type);
-                    }
-                    else{
-                        type-=(value*1);
-                        if(type<0)type+=(Math.pow(2, _.size(doctypes.value))-1);
-                        $('input[value="0"]',this.el).prop('checked',false);
-                        this.model.set('type',type);
-                    }
-                }
-                $('#btn-query',this.el).attr('href','#query/k'+this.model.get('keywords')+'/t'+this.model.get('type'));
+                $('#btn-query',this.el).attr('href','#query/k'+this.model.get('keywords')+'/t'+'1');
             }
         });
     }
