@@ -16,11 +16,14 @@ requirejs.config({
         },
         'handlebars': {
             'exports': 'Handlebars'
+        },
+        'bootstrap':{
+            deps: ["jquery"]
         }
     }
 });
 
-requirejs(['jquery','underscore','backbone','handlebars','app/main'],
+requirejs(['jquery','underscore','backbone','handlebars','app/main','bootstrap'],
     function($,_,Backbone,Handlebars,App){
         console.log('Backbone#'+Backbone.VERSION);
         console.log('jquery#'+ $(this).jquery);
