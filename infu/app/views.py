@@ -9,7 +9,7 @@ __es_url__ = '127.0.0.1:9200'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', app=app)
 
 
 def get_query_params_from(req):
