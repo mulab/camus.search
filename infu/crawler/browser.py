@@ -230,13 +230,27 @@ class albumBrowser(renrenBrowser):
         if update or not os.path.exists(jsonFileName):
             # modify the pagenum parameter
             # if there is album which contains more than 100 photos
-            url = 'http://photo.renren.com/photo/{rid}/album-{aid}/bypage/ajax?curPage=0&pagenum=100'.format(
+            url = 'http://photo.renren.com/photo/{rid}/album-{aid}/bypage/ajax?curPage=0&pagenum=200'.format(
                 rid=rid,
                 aid=aid
             )  # no more than 2000 photos per album
             resp = self.get(url)
             #print resp
             photos = resp.json()
+            photoNum = photos["photoList"][0]["position"]
+            if photoNum > 200:
+                for page in range(photoNum/200):
+                    url1 = 'http://photo.renren.com/photo/{rid}/album-{aid}/bypage/ajax?curPage={page}&pagenum=200'.format(
+                        rid=rid,
+                        aid=aid,
+                        page=page+1
+                    )
+                    #print url1
+                    photosPerPage=self.get(url1).json()
+                    #print photosPerPage["photoList"][0]["position"]
+                    photos["photoList"].extend(photosPerPage["photoList"])
+            #print photoNum
+            #print len(photos["photoList"])
             json.dump(photos, open(dir + '/photos.json', 'w'), encoding='utf-8')
         else:
             photos = json.load(open(dir + '/photos.json'), encoding='utf-8')
