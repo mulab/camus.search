@@ -8,6 +8,10 @@ __size__ = 10
 __es_url__ = '127.0.0.1:9200'
 
 @app.route('/')
+def home():
+    return render_template('home.html', app=app)
+
+@app.route('/search')
 def index():
     return render_template('index.html', app=app)
 
