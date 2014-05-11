@@ -38,7 +38,7 @@ define(['underscore','handlebars','backbone','text!app/template/header.html','ap
             onKeywordsChange:function(event){
                 var keywords = $(event.currentTarget).val();
                 this.model.set('keywords',keywords);
-                $('#btn-query',this.el).attr('href','#query/k'+this.model.get('keywords')+'/t'+'1');
+                $('#btn-query',this.el).attr('href','/search#query/k'+this.model.get('keywords')+'/t'+'1');
             }
         });
     }
