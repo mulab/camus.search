@@ -1,9 +1,6 @@
 <div class="searchbox header-content">
-    <input id="keyword" type="text" value="{{keywords}}"/><a id="btn-query" class="button" href="#{{link}}">查询</a>
-    <div id="doctype">
-    {{#doctype}}
-        <input type="checkbox" value="{{value}}" {{checked}}>
-        <label>{{text}}</label>
-    {{/doctype}}
-    </div>
+    <form class="form-search">
+        <input id="keyword" type="text" value="{{keywords}}" class="input-medium search-query span5"/>
+        <a id="btn-query" class="btn span1" href="#{{link}}">查询</a>
+    </form>
 </div>
