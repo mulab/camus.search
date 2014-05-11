@@ -10,6 +10,11 @@
 @import "breadcrumbs";
 @import "forms";
 @import "buttons";
+
+#util{
+  #grid > .core(@gridColumnWidth, @gridGutterWidth);
+}
+
 html,body,.page{
   height:100%
 }
@@ -25,6 +30,8 @@ label,[type=check]{
   .navbars{
     .bg-color-blueDark();
     .breadcrumb{
+      padding-bottom: 0;
+      padding-top: 0;
       .bg-color-blueDark();
       .active{
         .fg-color-white();
@@ -37,19 +44,13 @@ label,[type=check]{
     }
     .header-content{
 //      .page.page-header.page-header-content();
+      form{
+        margin: auto;
+      }
     }
   }
   .content {
-    width: 90%;
-    max-width: 1260px; /* 可能需要最大宽度，以防止此布局在大型显示器上过宽。这将使行长度更便于阅读。IE6 不遵循此声明。 */
-    min-width: 780px; /* 可能需要最小宽度，以防止此布局过窄。这将使侧面列中的行长度更便于阅读。IE6 不遵循此声明。 */
-    background-color: #FFF;
-    margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐。如果将 .container 宽度设置为 100%，则不需要此设置。 */
-    margin-top: 20px;
-    overflow: hidden; /* 此声明将使 .container 清除其包含的所有浮动列。 */
-    position: absolute;
-    left: 5%;
-    top: auto;
+    #util > .offset(1);
     .result-list{
       padding: 10px 0;
       width: 40%;
@@ -66,15 +67,14 @@ label,[type=check]{
       padding-bottom: 10px;
       min-width: 200px;
     }
-    .central{
-
-      top: 50%;
-    }
+  }
+  .central{
+    top: 40%;
   }
 }
 .searchbox{
-  #keyword{
-
+  #keyword .central{
+    #util > .offset(5);
   }
   #btn-query{
 
