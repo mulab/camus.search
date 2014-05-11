@@ -1,5 +1,5 @@
 {{~#iftype 'infu'}}
-<div class="result-title">{{title}}</div>
+<div class="result-title">{{{title}}}</div>
 <div class="result-large-url"><img src="{{large_url}}"></div>
 <div class="result-photo"><a href="http://photo.renren.com/photo/386451741/photo-{{photo_id}}" target="_blank">查看原问答</a></div>
 <div class="result-comment">评论数量：{{comment_count}}</div>
@@ -10,13 +10,13 @@
     {{/comment_list~}}
 {{/iftype~}}
 {{~#iftype 'artschool,learnfaq,lib'}}
-<div class="result-title">{{title}}</div>
+<div class="result-title">{{{title}}}</div>
 <div class="light-segment"></div>
 <div class="result-answer">{{answer}}</div>
 <div class="result-link"><a href="{{link}}" target="_blank">查看原问答</a></div>
 {{~/iftype~}}
 {{~#iftype 'chemschool,libauthor'}}
-<div class="result-title">{{title}}</div>
+<div class="result-title">{{{title}}}</div>
 <div class="result-time">{{time}}</div>
 <div class="light-segment"></div>
 <div class="result-question">{{question}}</div>
@@ -25,7 +25,7 @@
 <div class="result-link"><a href="{{link}}" target="_blank">查看原问答</a></div>
 {{~/iftype~}}
 {{~#iftype 'myhome'}}
-<div class="result-title">{{title}}</div>
+<div class="result-title">{{{title}}}</div>
 <div class="light-segment"></div>
 <div class="light-question">{{question}}</div>
 <div class="light-segment"></div>
@@ -34,7 +34,7 @@
         {{~/answers~}}
 {{~/iftype~}}
 {{~#iftype 'career'}}
-<div class="result-title">{{title}}</div>
+<div class="result-title">{{{title}}}</div>
 <div class="light-segment"></div>
 <div class="result-question">{{question}}</div>
 <div class="light-segment"></div>
@@ -42,7 +42,7 @@
 <div class="result-link"><a href="{{link}}" target="_blank">查看原问答</a></div>
 {{~/iftype~}}
 {{~#iftype 'tunet'}}
-<div class="result-title">{{title}}</div>
+<div class="result-title">{{{title}}}</div>
 <div class="result-time">{{time}}</div>
 <div class="light-segment"></div>
 <div class="result-answer">{{answer}}</div>
