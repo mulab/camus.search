@@ -9,11 +9,20 @@ define([
 
     var InfuCollection = Backbone.Collection.extend({
         model: InfuModel,
-        url: function(){
-            return '/search?type=infu&keywords=' + (this.keywords || '') + '&start=' + (this.start || 0) + '&size=' + (this.pageSize || 10); 
+        url: function () {
+            return '/search?type=infu&keywords=' + this.keywords + '&start=' + this.start + '&size=' + this.pageSize;
         },
-        parse: function(response){
-            return response;
+        initialize: function (models, options) {
+            console.log(options);
+            options = options || {};
+            this.keywords = options.keywords || '';
+            this.start = options.start || 0;
+            this.pageSize = options.pageSize || 10;
+            this.type = 'infu';
+        },
+        parse: function(response) {
+            this.count = response.count;
+            return response.result;
         }
     });
 

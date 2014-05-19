@@ -28,7 +28,10 @@ define(['models/infu', '../fixtures/infu', 'collections/infu'], function (Infu, 
                 server.respondWith('GET', '/search?type=infu&keywords=&start=0&size=10', [200, {
                         'Content-Type': 'application/json'
                 },
-                    JSON.stringify([InfuFixture])]);
+                    JSON.stringify({
+                        result: [InfuFixture],
+                        count: 100
+                    })]);
                 var infus = new InfuCollection();
                 infus.fetch();
                 server.respond();
