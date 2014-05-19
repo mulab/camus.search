@@ -6,7 +6,7 @@ define([
     'use strict';
 
     var InfuModel = Backbone.Model.extend({
-        url: '',
+        urlRoot: '/infu',
 
         initialize: function () {},
 
@@ -20,7 +20,8 @@ define([
             authorName: '',
             index: '',
             commentList: [],
-            type: 'infu'
+            type: 'infu',
+            id: 0
         },
 
         parse: function (response) {
@@ -33,7 +34,8 @@ define([
                 authorId: response.authorId,
                 authorName: response.author,
                 index: response.resultIndex,
-                commentList: response.commentList
+                commentList: response.commentList,
+                id: response.id
             };
         }
     });
