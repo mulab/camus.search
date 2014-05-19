@@ -326,7 +326,7 @@ module.exports = function (grunt) {
                 'handlebars',
                 'compass',
                 'connect:test',
-                'mocha',
+                'qunit',
             ];
 
         if(!isConnected) {
