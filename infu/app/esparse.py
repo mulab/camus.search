@@ -145,7 +145,8 @@ class InfuResult():
             'commentCount': r.comm.commentCount,
             'commentList': comment_list,
             'photoId': r.info.photoId,
-            'type': u'infu'
+            'type': u'infu',
+            'id': r._meta.id
         })
 
     def get_title(self, title):
