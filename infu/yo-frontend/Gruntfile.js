@@ -132,6 +132,13 @@ module.exports = function (grunt) {
                 }
             }
         },
+        qunit: {
+            all: {
+                options: {
+                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html']
+                }
+            }
+        },
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
