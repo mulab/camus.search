@@ -21,8 +21,9 @@ require.config({
     }
 });
 
-require(['../spec/env'], function(env){
+require(['../spec/env', '../spec/models'], function(env, models){
     env.run();
+    models.run();
     QUnit.load();
     QUnit.start();
 });
