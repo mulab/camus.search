@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>unit test powered by QUnit</title>
+    <link rel="stylesheet" href="bower_components/qunit/qunit/qunit.css">
+    <script src="bower_components/qunit/qunit/qunit.js"></script>
+    <script>
+        QUnit.config.autoload = false;
+        QUnit.config.autostart = false;
+    </script>
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="bower_components/requirejs/require.js" data-main="scripts/app-test.js"></script>
+</body>
+</html>
