@@ -1,3 +1,0 @@
-[submodule "elasticsearch-rtf"]
-	path = elasticsearch-rtf
-	url = https://github.com/medcl/elasticsearch-rtf.git
