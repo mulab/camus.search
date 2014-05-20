@@ -13,7 +13,6 @@ define([
             return '/search?type=infu&keywords=' + this.keywords + '&start=' + this.start + '&size=' + this.pageSize;
         },
         initialize: function (models, options) {
-            console.log(options);
             options = options || {};
             this.keywords = options.keywords || '';
             this.start = options.start || 0;
