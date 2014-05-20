@@ -1,7 +1,7 @@
 /*jshint qunit: true*/
 /*global sinon: false*/
 'use strict';
-define(['views/resultList', 'views/resultDetail', '../fixtures/infu', 'collections/infu', 'jquery'], function (ResultList, ResultDetail, Fixture, Infu, $) {
+define(['views/resultList', 'views/resultDetail', 'views/searchBox', '../fixtures/infu', 'collections/infu', 'jquery', 'backbone'], function (ResultList, ResultDetail, SearchBox, Fixture, Infu, $, Backbone) {
     return {
         run: function () {
             test('result list view', function () {
@@ -61,6 +61,19 @@ define(['views/resultList', 'views/resultDetail', '../fixtures/infu', 'collectio
                 notEqual($fixture.html(), '', 'view is rendered');
                 equal($fixture.find('.result-title').html(), Fixture.title, 'title rendered');
                 equal($fixture.find('.result-large-url img').attr('src'), Fixture.largeUrl, 'picture rendered');
+            });
+            test('search box view', function () {
+                var view = new SearchBox({
+                    el: '#qunit-fixture',
+                    model: new Backbone.Model({
+                        keyword: 'a'
+                    })
+                });
+                view.render();
+                var $fixture = $('#qunit-fixture');
+                notEqual($fixture.html(), '', 'view is rendered');
+                equal($fixture.find('#keyword').attr('value'), 'a');
+                equal($fixture.find('#btn-query').attr('href'), '#query/a/infu');
             });
         }
     };
