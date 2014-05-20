@@ -63,17 +63,22 @@ define(['views/resultList', 'views/resultDetail', 'views/searchBox', '../fixture
                 equal($fixture.find('.result-large-url img').attr('src'), Fixture.largeUrl, 'picture rendered');
             });
             test('search box view', function () {
+                var model = new Backbone.Model({
+                        keyword: 'a'
+                    });
                 var view = new SearchBox({
                     el: '#qunit-fixture',
-                    model: new Backbone.Model({
-                        keyword: 'a'
-                    })
+                    model: model
                 });
                 view.render();
                 var $fixture = $('#qunit-fixture');
                 notEqual($fixture.html(), '', 'view is rendered');
                 equal($fixture.find('#keyword').attr('value'), 'a');
                 equal($fixture.find('#btn-query').attr('href'), '#query/a/infu');
+                model.set('keyword', 'b');
+                equal(model.get('keyword'), 'b');
+                equal($fixture.find('#keyword').attr('value'), 'b', 'search box view listen to model change');
+                equal($fixture.find('#btn-query').attr('href'), '#query/b/infu', 'search box view listen to model change');
             });
         }
     };
