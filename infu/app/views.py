@@ -32,6 +32,8 @@ def get_query_params_from(req):
 @app.route('/search', methods=['POST', 'GET'])
 def query():
     keyword, doctype, start_index, page_size = get_query_params_from(request)
+    # why must do this?? or es query empty set.
+    doctype = str(doctype)
     es_url = app.config.get('es_url') or __es_url__
     conn = pyes.ES(es_url)
     q = pyes.Search(pyes.StringQuery(keyword), None, None, start_index, size=page_size)
