@@ -79,6 +79,10 @@ define(['views/resultList', 'views/resultDetail', 'views/searchBox', '../fixture
                 equal(model.get('keyword'), 'b');
                 equal($fixture.find('#keyword').attr('value'), 'b', 'search box view listen to model change');
                 equal($fixture.find('#btn-query').attr('href'), '#query/b/infu', 'search box view listen to model change');
+                var e = $.Event('keyup', {keycode: 99});
+                $fixture.find('#keyword').trigger(e);
+                equal($fixture.find('#keyword').val(), 'bc');
+                equal($fixture.find('#btn-query').attr('href'), '#query/bc/infu', 'model bind to input');
             });
         }
     };
