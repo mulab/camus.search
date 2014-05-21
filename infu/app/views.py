@@ -11,11 +11,6 @@ __es_url__ = '127.0.0.1:9200'
 def home():
     return render_template('home.html', app=app)
 
-@app.route('/search')
-def index():
-    return render_template('index.html', app=app)
-
-
 def get_query_params_from(req):
     if req.method == 'POST' and req.data != '':
         args = jsonlib.loads(req.data)
