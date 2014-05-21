@@ -1,0 +1,13 @@
+<div class="result-title">{{{title}}}</div>
+<div class="result-large-url">
+    <img src="{{largeUrl}}">
+</div>
+<div class="result-photo"><a href="http://photo.renren.com/photo/386451741/photo-{{photoId}}" target="_blank">查看原问答</a>
+</div>
+<div class="result-comment">评论数量：{{commentCount}}</div>
+{{~#commentList}}
+<div class="result-comment-detail">
+    {{name}}:{{{body}}}
+    <br>{{time}}
+</div>
+{{/commentList~}}
