@@ -1,6 +1,6 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
-@import 'sass-bootstrap/lib/bootstrap';
+@import "sass-bootstrap/lib/bootstrap";
 
 .browsehappy {
     margin: 0.2em 0;
@@ -72,7 +72,6 @@ body {
     .container {
         max-width: 730px;
     }
-
     /* Remove the padding we set earlier */
     .header,
     .marketing,
@@ -87,5 +86,43 @@ body {
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
+    }
+}
+
+/* custom style */
+.result-list {
+    .result-total {
+        font-size: 13px;
+        line-height: 15px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(201, 115, 192);
+        border-color: rgb(201, 115, 192);
+    }
+    .result-item {
+        font-size: 13px;
+        line-height: 16px;
+        color: rgb(68, 68, 68);
+        border-bottom: 23px;
+        border-style: solid;
+        border-color: #ffffff;
+        width: 100%;
+        position: relative;
+        left: 0px;
+        cursor: pointer;
+        .result-title {
+            font-size: 16px;
+            line-height: 16px;
+            text-decoration: underline;
+            color: rgb(0, 0, 255);
+            width: 100%;
+            white-space: normal;
+            word-break: break-all;
+        }
+        &.result-selected {
+            color: rgb(255, 255, 255);
+            background-color: rgb(156, 156, 156);
+            border-radius: 3px;
+            border-color: rgb(156, 156, 156);
+        }
     }
 }
