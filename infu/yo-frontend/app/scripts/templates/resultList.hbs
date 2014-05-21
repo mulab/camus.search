@@ -11,7 +11,7 @@
 {{#pagination ~}}
 <div class="result-pagination">
     {{~#pageList}}
-    <a href="{{pageLink}}" class="{{current}}">{{pageNum}}</a>
+    <a href="{{pageLink}}" class="{{current}}" onclick="$(window).scrollTop(0);return true;">{{pageNum}}</a>
     {{~/pageList~}}
 </div>
 {{~/pagination~}}
