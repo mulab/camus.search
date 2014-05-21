@@ -35,9 +35,7 @@ define([
                 this.$('#keyword').val(this.$('#keyword').val()+String.fromCharCode(event.keycode)) ;
             }
             event.stopPropagation();
-            console.log(event);
             var keyword = this.$('#keyword').val();
-            console.log(keyword);
             this.$('#btn-query').attr('href', '#query/' + keyword + '/infu');
         }
     });
