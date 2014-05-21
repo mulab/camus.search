@@ -20,7 +20,7 @@ define([
             }).render();
         },
         query: function (keywords, type, start) {
-            var infu = new Infu({
+            var infu = new Infu([], {
                 keywords: keywords,
                 type: type,
                 start: start,
