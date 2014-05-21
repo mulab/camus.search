@@ -18,8 +18,8 @@ define([
         className: '',
 
         events: {
-            'keydown #keyword':'onKeywordsChange',
-            'change #keyword':'onKeywordsChange'
+            'keyup #keyword': 'onKeywordsChange',
+            'change #keyword': 'onKeywordsChange'
         },
 
         initialize: function () {
@@ -29,10 +29,16 @@ define([
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
         },
-        
+
         onKeywordsChange: function (event) {
-            var keyword = $(event.currentTarget).val();
-            this.model.set('keyword',keyword);
+            if (event.isTrigger && event.keycode) { // used in test for simulate
+                this.$('#keyword').val(this.$('#keyword').val()+String.fromCharCode(event.keycode)) ;
+            }
+            event.stopPropagation();
+            console.log(event);
+            var keyword = this.$('#keyword').val();
+            console.log(keyword);
+            this.$('#btn-query').attr('href', '#query/' + keyword + '/infu');
         }
     });
 
