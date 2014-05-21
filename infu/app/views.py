@@ -24,7 +24,7 @@ def get_query_params_from(req):
     keywords = args.get('keywords') or '*'
     try:
         doctype = jsonlib.loads(args.get('type'))
-    except TypeError:
+    except (TypeError, ValueError):
         doctype = args.get('type') or []
     try:
         start_index = int(args.get('start'))
