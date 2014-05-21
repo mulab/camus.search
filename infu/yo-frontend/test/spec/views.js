@@ -1,7 +1,7 @@
 /*jshint qunit: true*/
 /*global sinon: false*/
 'use strict';
-define(['views/resultList', 'views/resultDetail', 'views/searchBox', '../fixtures/infu', 'collections/infu', 'jquery', 'backbone'], function (ResultList, ResultDetail, SearchBox, Fixture, Infu, $, Backbone) {
+define(['views/resultList', 'views/resultDetail', 'views/searchBox', 'views/index', '../fixtures/infu', 'collections/infu', 'jquery', 'backbone'], function (ResultList, ResultDetail, SearchBox, Index, Fixture, Infu, $, Backbone) {
     return {
         run: function () {
             test('result list view', function () {
@@ -64,8 +64,8 @@ define(['views/resultList', 'views/resultDetail', 'views/searchBox', '../fixture
             });
             test('search box view', function () {
                 var model = new Backbone.Model({
-                        keyword: 'a'
-                    });
+                    keyword: 'a'
+                });
                 var view = new SearchBox({
                     el: '#qunit-fixture',
                     model: model
@@ -79,10 +79,27 @@ define(['views/resultList', 'views/resultDetail', 'views/searchBox', '../fixture
                 equal(model.get('keyword'), 'b');
                 equal($fixture.find('#keyword').attr('value'), 'b', 'search box view listen to model change');
                 equal($fixture.find('#btn-query').attr('href'), '#query/b/infu', 'search box view listen to model change');
-                var e = $.Event('keyup', {keycode: 99});
+                var e = $.Event('keyup', {
+                    keycode: 99
+                });
                 $fixture.find('#keyword').trigger(e);
                 equal($fixture.find('#keyword').val(), 'bc');
                 equal($fixture.find('#btn-query').attr('href'), '#query/bc/infu', 'model bind to input');
+            });
+            test('index view', function () {
+                var view = new Index({
+                    el: '#qunit-fixture',
+                    model: new Backbone.Model()
+                });
+                view.render();
+                var $fixture = $('#qunit-fixture');
+                notEqual($fixture.html(), '', 'view is rendered');
+                var e = $.Event('keyup', {
+                    keycode: 99
+                });
+                $fixture.find('#keyword').trigger(e);
+                equal($fixture.find('#keyword').val(), 'c');
+                equal($fixture.find('#btn-query').attr('href'), '#query/c/infu', 'model bind to input');
             });
         }
     };

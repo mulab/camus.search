@@ -4,8 +4,8 @@ define([
     'jquery',
     'backbone',
     'collections/infu',
-    'views/searchBox'
-], function ($, Backbone, Infu, SearchBox) {
+    'views/index'
+], function ($, Backbone, Infu, Index) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -14,13 +14,10 @@ define([
             '': 'index'
         },
         index: function () {
-            var searchBox = new SearchBox({
-                el: '#searchBox',
-                model: new Backbone.Model({
-                    keyword: ''
-                })
-            });
-            searchBox.render();
+            new Index({
+                el: '.content',
+                model: new Backbone.Model()
+            }).render();
         },
         query: function (keywords, type, start) {
             var infu = new Infu({
