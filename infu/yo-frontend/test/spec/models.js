@@ -25,14 +25,16 @@ define(['models/infu', '../fixtures/infu', 'collections/infu'], function (Infu, 
             });
             test('collection', function () {
                 var server = sinon.fakeServer.create();
-                server.respondWith('GET', '/search?type=infu&keywords=&start=0&size=10', [200, {
+                server.respondWith('GET', '/search?type=infu&keywords=a&start=0&size=10', [200, {
                         'Content-Type': 'application/json'
                 },
                     JSON.stringify({
                         result: [InfuFixture],
                         count: 100
                     })]);
-                var infus = new InfuCollection();
+                var infus = new InfuCollection([], {
+                    keywords: 'a'
+                });
                 infus.fetch();
                 server.respond();
                 equal(infus.length, 1);
