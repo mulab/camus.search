@@ -1,0 +1,17 @@
+<div class="result-total">查询结果数：{{count}}</div>
+{{#models ~}}
+<div class="result-item" result-index="{{index}}">
+    <div class="result-title">{{{title}}}</div>
+    <div class="result-comment">评论数量：{{commentCount}}</div>
+    <div class="result-time">{{time}}</div>
+    <div class="result-author">尹福:<a href="http://www.renren.com/{{authorId}}" target="_blank">{{authorName}}</a>
+    </div>
+</div>
+{{~/models~}}
+{{#pagination ~}}
+<div class="result-pagination">
+    {{~#pageList}}
+    <a href="{{pageLink}}" class="{{current}}" onclick="$(window).scrollTop(0);return true;">{{pageNum}}</a>
+    {{~/pageList~}}
+</div>
+{{~/pagination~}}
