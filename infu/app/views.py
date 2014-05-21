@@ -32,7 +32,7 @@ def get_query_params_from(req):
     return keywords, doctype, start_index, page_size
 
 
-@app.route('/query', methods=['POST', 'GET'])
+@app.route('/search', methods=['POST', 'GET'])
 def query():
     keyword, doctype, start_index, page_size = get_query_params_from(request)
     es_url = app.config.get('es_url') or __es_url__
