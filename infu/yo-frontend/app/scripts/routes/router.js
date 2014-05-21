@@ -3,24 +3,33 @@
 define([
     'jquery',
     'backbone',
-    'collections/infu'
-], function ($, Backbone, Infu) {
+    'collections/infu',
+    'views/searchBox'
+], function ($, Backbone, Infu, SearchBox) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
         routes: {
-            '': 'index',
             'query/:keywords/:type(/:start)': 'query',
-            index: function () {},
-            query: function (keywords, type, start) {
-                var infu = new Infu({
-                    keywords: keywords,
-                    type: type,
-                    start: start,
-                    pageSize: 10
-                });
-                infu.fetch();
-            }
+            '': 'index'
+        },
+        index: function () {
+            var searchBox = new SearchBox({
+                el: '#searchBox',
+                model: new Backbone.Model({
+                    keyword: ''
+                })
+            });
+            searchBox.render();
+        },
+        query: function (keywords, type, start) {
+            var infu = new Infu({
+                keywords: keywords,
+                type: type,
+                start: start,
+                pageSize: 10
+            });
+            infu.fetch();
         }
 
     });
