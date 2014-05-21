@@ -4,8 +4,9 @@ define([
     'jquery',
     'backbone',
     'collections/infu',
-    'views/index'
-], function ($, Backbone, Infu, Index) {
+    'views/index',
+    'views/result'
+], function ($, Backbone, Infu, Index, Result) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -26,7 +27,13 @@ define([
                 start: start,
                 pageSize: 10
             });
-            infu.fetch();
+            var result = new Result({
+                el: '.content',
+                model: infu
+            });
+            infu.fetch().done(function () {
+                result.render();
+            });
         }
 
     });
