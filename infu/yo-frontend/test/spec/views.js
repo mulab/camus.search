@@ -1,7 +1,7 @@
 /*jshint qunit: true*/
 /*global sinon: false*/
 'use strict';
-define(['views/resultList', 'views/resultDetail', 'views/searchBox', 'views/index', '../fixtures/infu', 'collections/infu', 'jquery', 'backbone'], function (ResultList, ResultDetail, SearchBox, Index, Fixture, Infu, $, Backbone) {
+define(['views/resultList', 'views/resultDetail', 'views/searchBox', 'views/index', 'views/result',  '../fixtures/infu', 'collections/infu', 'jquery', 'backbone'], function (ResultList, ResultDetail, SearchBox, Index, Result, Fixture, Infu, $, Backbone) {
     return {
         run: function () {
             test('result list view', function () {
@@ -100,6 +100,39 @@ define(['views/resultList', 'views/resultDetail', 'views/searchBox', 'views/inde
                 $fixture.find('#keyword').trigger(e);
                 equal($fixture.find('#keyword').val(), 'c');
                 equal($fixture.find('#btn-query').attr('href'), '#query/c/infu', 'model bind to input');
+            });
+            test('result view', function () {
+                var server = sinon.fakeServer.create();
+                server.respondWith('GET', '/search?type=infu&keywords=a&start=10&size=10', [200, {
+                        'Content-Type': 'application/json'
+                },
+                    JSON.stringify({
+                        result: [Fixture],
+                        count: 100
+                    })]);
+                var infus = new Infu([], {
+                    keywords: 'a',
+                    start: 10,
+                    pageSize: 10
+                });
+                infus.fetch();
+                server.respond();
+                equal(infus.length, 1);
+                var view = new Result({
+                    el: '#qunit-fixture',
+                    model: infus
+                });
+                view.render();
+                var $fixture = $('#qunit-fixture');
+                notEqual($fixture.html(), '', 'view is rendered');
+                notEqual($fixture.find('#searchBox').html(), '', 'search box is rendered');
+                equal($fixture.find('#keyword').val(), 'a', 'keyword is renderd');
+                equal($fixture.find('.result-item').length, 1, 'result item is correct');
+                var $pagination = $fixture.find('.result-pagination');
+                notEqual($pagination.html(), '', 'result pagination is rendered');
+                notEqual($pagination.html().indexOf('上一页'), -1, 'pagination has pre page');
+                notEqual($pagination.html().indexOf('下一页'), -1, 'pagination has next page');
+                equal($pagination.find('a').length, 12, 'pagination rendered correctly');
             });
         }
     };
