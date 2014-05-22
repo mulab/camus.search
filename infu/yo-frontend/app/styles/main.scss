@@ -9,6 +9,13 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
+/* keywords style */
+em {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  font-style: normal;
+}
+
 /* Space out content a bit */
 body {
     padding-top: 0px;
