@@ -1,6 +1,10 @@
 <div class="searchbox">
-    <form class="form-search">
-        <input id="keyword" type="text" value="{{keyword}}" class="input-medium search-query span5"/>
-        <a id="btn-query" class="btn span1" href="#query/{{keyword}}/infu">查询</a>
+    <form class="form-inline">
+        <div class="form-group col-sm-9">
+            <input id="keyword" type="text" value="{{keyword}}" class="form-control"/>
+        </div>
+        <div class="col-sm-3">
+            <a id="btn-query" class="btn btn-default" href="#query/{{keyword}}/infu">查询</a>
+        </div>
     </form>
 </div>
