@@ -19,7 +19,8 @@ define([
 
         events: {
             'keyup #keyword': 'onKeywordsChange',
-            'change #keyword': 'onKeywordsChange'
+            'change #keyword': 'onKeywordsChange',
+            'keypress #keyword': 'onKeyPress'
         },
 
         initialize: function () {
@@ -37,6 +38,14 @@ define([
             event.stopPropagation();
             var keyword = this.$('#keyword').val();
             this.$('#btn-query').attr('href', '#query/' + keyword + '/infu');
+        },
+        
+        onKeyPress: function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                window.location.hash = this.$('#btn-query').attr('href');
+            }
+            event.stopPropagation();
         }
     });
 
