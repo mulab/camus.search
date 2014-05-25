@@ -15,12 +15,14 @@ define([
             '': 'index'
         },
         index: function () {
+            $('.footer').addClass('index');
             new Index({
                 el: '.content',
                 model: new Backbone.Model()
             }).render();
         },
         query: function (keywords, type, start) {
+            $('.footer').removeClass('index');
             var infu = new Infu([], {
                 keywords: keywords,
                 type: type,
