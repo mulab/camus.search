@@ -6,5 +6,5 @@ itsdangerous==0.23
 mock==1.0.1
 pyes==0.90.1
 six==1.5.2
-urllib3==1.7.1
+urllib3==1.23
 wsgiref==0.1.2
